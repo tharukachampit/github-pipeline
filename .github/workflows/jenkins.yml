@@ -1,0 +1,17 @@
+name: trigger jenkins build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: trigger jenkins build
+        uses: appleboy/jenkins-action@master
+        with:
+          url: 'https://cicd.champsoft.com/pipeline'
+          user: 'tharukag'
+          token: ${{ secrets.JENKINS_TOKEN }}
+          job: 'foobar'
