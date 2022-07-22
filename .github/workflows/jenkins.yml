@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.JENKINS_TOKEN }}
           job: 'Github_Pipeline_main'
 
-  build-prod:
+  build-develop:
     name: Build-develop
     runs-on: ubuntu-latest
     if: github.ref_name == 'develop'
