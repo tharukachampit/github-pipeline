@@ -14,4 +14,4 @@ jobs:
           url: 'https://cicd.champsoft.com/pipeline'
           user: 'tharukag'
           token: ${{ secrets.JENKINS_TOKEN }}
-          job: 'foobar'
+          job: 'Github_Pipeline_main'
