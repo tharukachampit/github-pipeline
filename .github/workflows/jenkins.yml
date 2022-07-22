@@ -1,12 +1,10 @@
-name: trigger jenkins build on main
-on:
-  push:
-    branches:
-      - main
+name: trigger jenkins build
+on: [push]
 jobs:
-  build:
-    name: Build
+  build-prod:
+    name: Build-prod
     runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
     steps:
       - name: trigger jenkins build
         uses: appleboy/jenkins-action@master
@@ -16,16 +14,10 @@ jobs:
           token: ${{ secrets.JENKINS_TOKEN }}
           job: 'Github_Pipeline_main'
 
-
-name: trigger jenkins build on develop
-on:
-  push:
-    branches:
-      - develop
-jobs:
-  build:
-    name: Build
+  build-prod:
+    name: Build-develop
     runs-on: ubuntu-latest
+    if: github.ref_name == 'develop'
     steps:
       - name: trigger jenkins build
         uses: appleboy/jenkins-action@master
